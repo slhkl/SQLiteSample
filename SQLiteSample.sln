@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteSample", "SQLiteSampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteSample.DataAccess", "SQLiteSample.DataAccess\SQLiteSample.DataAccess.csproj", "{AE7F42AD-103D-4B2A-972D-C0C820034D86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteSample.Data", "SQLiteSample.Data\SQLiteSample.Data.csproj", "{A3A77891-834F-4899-8780-3755967CB6F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AE7F42AD-103D-4B2A-972D-C0C820034D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE7F42AD-103D-4B2A-972D-C0C820034D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE7F42AD-103D-4B2A-972D-C0C820034D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3A77891-834F-4899-8780-3755967CB6F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3A77891-834F-4899-8780-3755967CB6F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3A77891-834F-4899-8780-3755967CB6F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3A77891-834F-4899-8780-3755967CB6F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
