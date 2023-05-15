@@ -25,8 +25,8 @@ namespace SQLiteSample.DataAccess.Helper
                     while (reader.Read())
                         list.Add(new KeyValueModel()
                         {
-                            Key = reader.GetOrdinal("key").ToString(),
-                            Value = reader.GetOrdinal("value").ToString()
+                            Key = reader.GetValue(reader.GetOrdinal("Key")).ToString(),
+                            Value = reader.GetValue(reader.GetOrdinal("Value")).ToString()
                         });
             }
             return list;
@@ -45,6 +45,41 @@ namespace SQLiteSample.DataAccess.Helper
                         value = reader.GetValue(reader.GetOrdinal("Value")).ToString();
             }
             return value;
+        }
+
+        public static void Add(this string tableName, KeyValueModel model)
+        {
+            using (var con = GetConnection())
+            {
+                var command = con.CreateCommand();
+                command.CommandText = $"INSERT INTO {tableName}(Key, Value) VALUES(@Key, @Value)";
+                command.Parameters.AddWithValue("@Key", model.Key);
+                command.Parameters.AddWithValue("@Value", model.Value);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public static void Update(this string tableName, KeyValueModel model)
+        {
+            using (var con = GetConnection())
+            {
+                var command = con.CreateCommand();
+                command.CommandText = $"UPDATE {tableName} SET Value=@Value WHERE Key=@Key";
+                command.Parameters.AddWithValue("@Key", model.Key);
+                command.Parameters.AddWithValue("@Value", model.Value);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public static void Delete(this string tableName, string key)
+        {
+            using (var con = GetConnection())
+            {
+                var command = con.CreateCommand();
+                command.CommandText = $"DELETE FROM {tableName} WHERE Key=@Key";
+                command.Parameters.AddWithValue("@Key", key);
+                command.ExecuteNonQuery();
+            }
         }
 
         public static void CreateTable(this string tableName)
